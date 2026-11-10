@@ -1,0 +1,37 @@
+PUBLIC ISSUE PORTAL - SERVER AUDIT FIXES
+
+This server folder contains source-level fixes from the uploaded project:
+
+1. Fixed Complaint.status schema validation typo (ennum -> enum).
+2. Fixed complaint response timestamp key (createAt -> createdAt).
+3. Fixed staff complaint pagination to read req.query.page.
+4. Fixed staff complaint selected timestamp field (updateAt -> updatedAt).
+5. Fixed approve complaint request field spelling to departmentId.
+6. Fixed notification helper signature to match all object-style call sites.
+7. Fixed Notification recipient model reference (USer -> User).
+8. Fixed notification status enum spelling (COMPLAINT_UNDER_REVIEW).
+9. Fixed municipal staff status workflow so both In Progress and Resolved transitions work.
+10. Fixed staff complaint details response and 404 response semantics.
+11. Fixed notification error variable reference.
+12. Fixed registration password minimum to match the validator (12 characters).
+13. Tightened Bearer token parsing and inactive-account response.
+14. Added MongoDB sanitization middleware and Express 5 query compatibility handling.
+15. Improved centralized error handling for Mongoose validation, invalid IDs, duplicate keys and malformed/oversized JSON.
+16. Fixed several response messages and setup script import/disconnect handling.
+
+SETUP
+- Copy .env.example to .env and fill in your own values.
+- Required: MONGODB_URI and JWT_SECRET (at least 32 characters).
+- Optional: PORT, NODE_ENV, JWT_EXPIRES_IN, CLIENT_URL, ADMIN_NAME, ADMIN_EMAIL, ADMIN_PASSWORD.
+- Never share or commit .env. This ZIP intentionally excludes the original .env.
+- From this server folder run: npm install
+- Then run: npm run dev
+- Health check: http://localhost:5000/api/health
+
+VALIDATION
+- All JavaScript files passed `node --check`.
+- A live MongoDB/API integration test was not run here because no private database credentials were used.
+- Review your local .env and run the API tests after installation. Frontend request payloads must use `departmentId` when approving a complaint.
+
+17. Admin review queue includes Approved complaints so the admin can assign active staff after routing.
+18. Added citizen notifications when a complaint is submitted and when admin review begins.

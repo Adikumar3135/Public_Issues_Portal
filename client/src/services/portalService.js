@@ -1,0 +1,11 @@
+import api from "./api";
+export const getAdminDashboard = async () => (await api.get("/dashboard/admin")).data;
+export const getDepartments = async () => (await api.get("/departments")).data;
+export const createDepartment = async (data) => (await api.post("/departments", data)).data;
+export const updateDepartment = async (id, data) => (await api.patch(`/departments/${id}`, data)).data;
+export const deactivateDepartment = async (id) => (await api.patch(`/departments/${id}/deactivate`)).data;
+export const getStatusAnalytics = async () => (await api.get("/dashboard/status")).data;
+export const getDepartmentAnalytics = async () => (await api.get("/dashboard/departments")).data;
+export const getDateAnalytics = async (startDate, endDate) => (await api.get("/dashboard/date-wise", { params: { startDate, endDate } })).data;
+export const getNotifications = async (params = {}) => (await api.get("/notifications", { params })).data;
+export const markNotificationRead = async (id) => (await api.patch(`/notifications/${id}/read`)).data;

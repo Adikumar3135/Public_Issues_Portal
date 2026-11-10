@@ -1,0 +1,31 @@
+express
+mongoose -----------  MongoDB database aur schemas
+dotenv -------------  .env file se environment variables read karna
+cors ---------------  Frontend se backend requests allow karna
+bcryptjs -----------  Password hashing
+jsonwebtoken -------  JWT authentication
+cookie-parser ------  Request cookies read karna
+helmet -------------  HTTP security headers
+express-rate-limit -  Repeated requests limit karna
+
+npm install -D nodemon  -------- Development tool install 
+
+
+config -----------  Database aur application configuration
+controllers ------  API ki main business logic
+models -----------  MongoDB schemas aur data structure
+routes -----------  API endpoints define karna
+middleware -------  Authentication, permissions aur request checks
+utils ------------  Reusable helper functions
+express-validator-  Data validation
+express-mongo-sanitize--- Protect from malicious input
+
+
+
+
+node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
+
+
+
+audit ------------  Check the vulnerabilities
+npm audit --omit=dev-- fix  the vulnerabilities
