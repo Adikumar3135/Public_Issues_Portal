@@ -18,7 +18,7 @@ const app = express();
 
 
 const allowedOrigins = (
-    process.env.CLIENT_URL || "https://publicissuesportal.vercel.app/"
+    process.env.CLIENT_URL || "https://publicissuesportal.vercel.app"
 ).split(",").map((origin) => origin.trim());
 
 app.use(helmet());
